@@ -49,7 +49,7 @@ class KeywordQueryEventListener(EventListener):
             # Show all if no query, or filter by keyword
             if not query_arg or query_lower in keyword.lower():
                 items.append(ExtensionResultItem(
-                    icon='images/folder.png',
+                    icon='images/dir.png',
                     name=keyword,
                     description=description,
                     on_enter=OpenAction(path)
@@ -59,14 +59,14 @@ class KeywordQueryEventListener(EventListener):
         if not items:
             if directories and query_arg:
                 items.append(ExtensionResultItem(
-                    icon='images/folder.png',
+                    icon='images/icon.png',
                     name='No matching directories found',
                     description='Try a different search term',
                     on_enter=OpenAction('')
                 ))
             else:
                 items.append(ExtensionResultItem(
-                    icon='images/folder.png',
+                    icon='images/dir.png',
                     name='No directories configured',
                     description='Edit directories.json to add your folders',
                     on_enter=OpenAction('')
