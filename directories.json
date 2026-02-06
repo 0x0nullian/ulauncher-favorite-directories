@@ -1,18 +1,18 @@
 [
     {
-        "keyword": "stuff",
-        "path": "/mnt/Stuff",
-        "description": "My Stuff Partition"
+        "keyword": "docs",
+        "path": "/home/yourusername/Documents",
+        "description": "My documents folder"
     },
     {
-        "keyword": "mydata",
-        "path": "/mnt/Stuff/Files/MyData",
-        "description": "My Desktop Files"
+        "keyword": "videos",
+        "path": "/home/yourusername/Videos",
+        "description": "Video collection"
     },
     {
-        "keyword": "downloads",
-        "path": "/home/abdulrhman/Downloads/",
-        "description": "Downloads Directory"
+        "keyword": "projects",
+        "path": "/home/yourusername/Projects",
+        "description": "Coding projects"
     },
     {
         "keyword": "downloads",
