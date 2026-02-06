@@ -1,5 +1,5 @@
 {
-    "required_api_version": "^2.0.0",
+    "required_api_version": "2",
     "name": "Favorite Directories",
     "description": "Quickly open predefined file directories",
     "developer_name": "Eckhoff42",
