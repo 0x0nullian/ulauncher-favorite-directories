@@ -1,0 +1,16 @@
+{
+    "required_api_version": "3",
+    "name": "Favorite Directories",
+    "description": "Quickly open predefined file directories",
+    "developer_name": "Eckhoff42",
+    "icon": "images/icon.png",
+    "preferences": [
+        {
+            "id": "favdirs_keyword",
+            "type": "keyword",
+            "name": "Extension Keyword",
+            "description": "The keyword to activate this extension (e.g., 'fd' or 'fav')",
+            "default_value": "fd"
+        }
+    ]
+}
