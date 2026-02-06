@@ -1,0 +1,22 @@
+[
+    {
+        "keyword": "stuff",
+        "path": "/mnt/Stuff",
+        "description": "My Stuff Partition"
+    },
+    {
+        "keyword": "mydata",
+        "path": "/mnt/Stuff/Files/MyData",
+        "description": "My Desktop Files"
+    },
+    {
+        "keyword": "downloads",
+        "path": "/home/abdulrhman/Downloads/",
+        "description": "Downloads Directory"
+    },
+    {
+        "keyword": "downloads",
+        "path": "/home/yourusername/Downloads",
+        "description": "Downloaded files"
+    }
+]
