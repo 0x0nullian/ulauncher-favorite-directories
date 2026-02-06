@@ -16,32 +16,30 @@ class FavoriteDirsExtension(Extension):
     def get_directories(self):
         """
         Reads directories from extension preferences.
-        Returns a LIST to preserve order, with each item as a dict: {'keyword': 'xxx', 'path': '/yyy/zzz'}
+        Returns a list of dictionaries in the order defined in the manifest.
+        Each dictionary has 'keyword' and 'path'.
         """
+        # We have 10 items in the manifest, from item1 to item10
+        pref_ids = [f'item{i}' for i in range(1, 11)]
         dirs = []
-        # 'self.preferences' is a dict of all preferences for this extension
-        for key, value in self.preferences.items():
-            # Ignore the special 'favdirs_keyword' preference and any empty values
-            if key == 'favdirs_keyword' or not value.strip():
-                continue
-            # Expecting format like: mydocs=/home/user/Documents
-            try:
-                # Split only on the first '=' to handle paths that might contain '='
-                keyword, path = value.split('=', 1)
-                dirs.append({'keyword': keyword.strip(), 'path': path.strip()})
-            except ValueError:
-                # If line doesn't contain '=', treat the whole value as a path, use a default keyword
-                dirs.append({'keyword': os.path.basename(value.strip()) or 'Folder', 'path': value.strip()})
+        for pref_id in pref_ids:
+            value = self.preferences.get(pref_id, '').strip()
+            if value:
+                # Split by the first '=' to get keyword and path
+                parts = value.split('=', 1)
+                if len(parts) == 2:
+                    keyword, path = parts[0].strip(), parts[1].strip()
+                else:
+                    # If no '=', use the basename of the path as the keyword
+                    path = value
+                    keyword = os.path.basename(path)
+                dirs.append({'keyword': keyword, 'path': path})
         return dirs
 
 class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
-        # Get the user's custom keyword from the extension preferences
-        activation_keyword = extension.preferences.get('favdirs_keyword', 'fd')
-        # Get the query string after the user's keyword
+        # Get the query string (what the user typed after the extension keyword)
         query_arg = event.get_argument() or ""
-
-        # Get the ordered list of directories
         directories = extension.get_directories()
         items = []
 
@@ -55,7 +53,6 @@ class KeywordQueryEventListener(EventListener):
                     icon='images/folder.png',
                     name=f"{dir_keyword}",
                     description=dir_path,
-                    # Open the directory with the default file manager when selected
                     on_enter=OpenAction(dir_path)
                 ))
 
@@ -65,7 +62,7 @@ class KeywordQueryEventListener(EventListener):
                 icon='images/folder.png',
                 name='No matching favorite directory found',
                 description='Try a different search term.',
-                on_enter=OpenAction('')  # Does nothing, but required
+                on_enter=OpenAction('')
             ))
 
         # If there's no query, show all favorites (already in order)
@@ -79,11 +76,10 @@ class KeywordQueryEventListener(EventListener):
                         on_enter=OpenAction(entry['path'])
                     ))
             else:
-                # Show a hint if no directories are configured
                 items.append(ExtensionResultItem(
                     icon='images/folder.png',
                     name='No favorite directories configured',
-                    description=f'Go to Ulauncher Preferences → Extensions → {extension.name} → and add paths like "docs=/home/yourname/Documents"',
+                    description='Go to Ulauncher Preferences → Extensions → Favorite Directories and set up directories in the format "keyword=path".',
                     on_enter=OpenAction('')
                 ))
 
