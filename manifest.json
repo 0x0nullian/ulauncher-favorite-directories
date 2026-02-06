@@ -14,17 +14,17 @@
         },
         {
             "id": "dir1",
-            "type": "stuff",
-            "name": "Stuff",
-            "description": "Format: display_name=/full/path (e.g., docs=/home/username/Documents)",
-            "default_value": "stuff=/mnt/Stuff/"
+            "type": "input",
+            "name": "Directory 1",
+            "description": "Format: display_name=/full/path",
+            "default_value": "Sutff=/mnt/Stuff"
         },
         {
-            "id": "dir2",
-            "type": "mydata",
-            "name": "My Desktop Data",
+            "id": "dir3",
+            "type": "input",
+            "name": "Directory 3",
             "description": "Format: display_name=/full/path",
-            "default_value": "My_Desktop_Data=/mnt/Stuff/Files/MyData"
+            "default_value": ""
         },
         {
             "id": "dir3",
