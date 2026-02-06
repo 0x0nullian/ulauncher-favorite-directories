@@ -11,6 +11,27 @@
             "name": "Extension Keyword",
             "description": "The keyword to activate this extension (e.g., 'fd' or 'fav')",
             "default_value": "fd"
+        },
+        {
+            "id": "dir1",
+            "type": "stuff",
+            "name": "Stuff",
+            "description": "Format: display_name=/full/path (e.g., docs=/home/username/Documents)",
+            "default_value": "stuff=/mnt/Stuff/"
+        },
+        {
+            "id": "dir2",
+            "type": "mydata",
+            "name": "My Desktop Data",
+            "description": "Format: display_name=/full/path",
+            "default_value": "My_Desktop_Data=/mnt/Stuff/Files/MyData"
+        },
+        {
+            "id": "dir3",
+            "type": "input",
+            "name": "Directory 3",
+            "description": "Format: display_name=/full/path",
+            "default_value": ""
         }
     ]
 }
