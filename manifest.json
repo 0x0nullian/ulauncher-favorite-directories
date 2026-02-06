@@ -1,37 +1,16 @@
 {
     "required_api_version": "2",
     "name": "Favorite Directories",
-    "description": "Quickly open predefined file directories",
-    "developer_name": "Eckhoff42",
+    "description": "Quickly open predefined file directories from JSON file",
+    "developer_name": "Your Name",
     "icon": "images/icon.png",
     "preferences": [
         {
             "id": "favdirs_keyword",
             "type": "keyword",
             "name": "Extension Keyword",
-            "description": "The keyword to activate this extension (e.g., 'fd' or 'fav')",
+            "description": "Keyword to activate extension (e.g., 'fd')",
             "default_value": "fd"
-        },
-        {
-            "id": "dir1",
-            "type": "input",
-            "name": "Directory 1",
-            "description": "Format: display_name=/full/path",
-            "default_value": "Sutff=/mnt/Stuff"
-        },
-        {
-            "id": "dir3",
-            "type": "input",
-            "name": "Directory 3",
-            "description": "Format: display_name=/full/path",
-            "default_value": ""
-        },
-        {
-            "id": "dir3",
-            "type": "input",
-            "name": "Directory 3",
-            "description": "Format: display_name=/full/path",
-            "default_value": ""
         }
     ]
 }
